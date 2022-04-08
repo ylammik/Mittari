@@ -7,6 +7,7 @@
 // npm init
 // kaikkiin enter ja vikaan yes
 // node app.js
+// postmanissa post komenossa täpät body, raw ja json!!
 var express = require("express")
 var app = express()
 var db = require("./database.js")
@@ -16,7 +17,7 @@ const { response } = require("express")
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 
-var HTTP_PORT = 8000
+var HTTP_PORT = process.env.PORT || 8080
 // käynnistetään serveri
 app.listen(HTTP_PORT,() =>{
     console.log("Server running on %PORT%".replace("%PORT%", HTTP_PORT))
